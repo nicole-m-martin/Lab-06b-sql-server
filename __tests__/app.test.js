@@ -1,10 +1,10 @@
 require('dotenv').config();
 
 const { execSync } = require('child_process');
-
-const fakeRequest = require('supertest');
+const request = require('supertest');
 const app = require('../lib/app');
 const client = require('../lib/client');
+const { wildAnimals } = require('../data/wildAnimals');
 
 describe('app routes', () => {
   describe('routes', () => {
@@ -15,7 +15,7 @@ describe('app routes', () => {
   
       client.connect();
   
-      const signInData = await fakeRequest(app)
+      const signInData = await request(app)
         .post('/auth/signup')
         .send({
           email: 'jon@user.com',
@@ -31,35 +31,43 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-    test('returns animals', async() => {
+    // return wild animal array TEST
+    test('should respond with the whole animal array', 
+      async() => {
+        const expectation = 
+          wildAnimals;
 
-      const expectation = [
-        {
-          'id': 1,
-          'name': 'bessie',
-          'coolfactor': 3,
-          'owner_id': 1
-        },
-        {
-          'id': 2,
-          'name': 'jumpy',
-          'coolfactor': 4,
-          'owner_id': 1
-        },
-        {
-          'id': 3,
-          'name': 'spot',
-          'coolfactor': 10,
-          'owner_id': 1
-        }
-      ];
+        const response = await request(app)
+          .get('/wildAnimals')
+          .expect('Content-Type', /json/)
+          .expect(200);
 
-      const data = await fakeRequest(app)
-        .get('/animals')
-        .expect('Content-Type', /json/)
-        .expect(200);
+        expect(response.body).toEqual(expectation);
+        
+      });
 
-      expect(data.body).toEqual(expectation);
-    });
+    // return one animal from animal array test
+    test('should respond with one animal from array', 
+      async() => {
+        const expectation = {
+         
+          'id': 22,
+          'animal_common_name': 'Wallaby, euro',
+          'animal_science_name': 'Macropus robustus',
+          'color': 'Aquamarine',
+          'amount': 63,
+          'is_fun': true,
+          'owner_id': 1
+          
+        };
+
+        const response = await request(app)
+          .get('/wildAnimals/22')
+          .expect('Content-Type', /json/)
+          .expect(200);
+
+        expect(response.body).toEqual(expectation);
+      });
+
   });
 });
