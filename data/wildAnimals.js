@@ -3,7 +3,7 @@ const wildAnimals = [
     'id': 1,
     'animal_common_name': 'Llama',
     'animal_science_name': 'Lama glama',
-    'color': 'Aquamarine',
+    'color': 'Blue',
     'amount': 54,
     'is_fun': true,
     'owner_id': 1
@@ -12,7 +12,7 @@ const wildAnimals = [
     'id': 2,
     'animal_common_name': 'Fox, cape',
     'animal_science_name': 'Vulpes chama',
-    'color': 'Goldenrod',
+    'color': 'Green',
     'amount': 55,
     'is_fun': true,
     'owner_id': 1
@@ -21,7 +21,7 @@ const wildAnimals = [
     'id': 3,
     'animal_common_name': 'Kudu, greater',
     'animal_science_name': 'Tragelaphus strepsiceros',
-    'color': 'Indigo',
+    'color': 'Red',
     'amount': 12,
     'is_fun': false,
     'owner_id': 1  
@@ -30,7 +30,7 @@ const wildAnimals = [
     'id': 4,
     'animal_common_name': 'Racer, american',
     'animal_science_name': 'Coluber constrictor',
-    'color': 'Puce',
+    'color': 'Red',
     'amount': 68,
     'is_fun': false,
     'owner_id': 1
@@ -39,7 +39,7 @@ const wildAnimals = [
     'id': 5,
     'animal_common_name': 'Common waterbuck',
     'animal_science_name': 'Kobus defassa',
-    'color': 'Maroon',
+    'color': 'Red',
     'amount': 72,
     'is_fun': true,
     'owner_id': 1
@@ -48,7 +48,7 @@ const wildAnimals = [
     'id': 6,
     'animal_common_name': 'Burrowing owl',
     'animal_science_name': 'Speotyte cuniculata',
-    'color': 'Teal',
+    'color': 'Blue',
     'amount': 74,
     'is_fun': true,
     'owner_id': 1
@@ -66,7 +66,7 @@ const wildAnimals = [
     'id': 8,
     'animal_common_name': 'Impala',
     'animal_science_name': 'Aepyceros mylampus',
-    'color': 'Mauv',
+    'color': 'Blue',
     'amount': 12,
     'is_fun': true,
     'owner_id': 1
@@ -75,7 +75,7 @@ const wildAnimals = [
     'id': 9,
     'animal_common_name': 'Shelduck, european',
     'animal_science_name': 'Tadorna tadorna',
-    'color': 'Puce',
+    'color': 'Red',
     'amount': 94,
     'is_fun': false,
     'owner_id': 1
@@ -93,7 +93,7 @@ const wildAnimals = [
     'id': 11,
     'animal_common_name': 'Phalarope, red',
     'animal_science_name': 'Phalaropus fulicarius',
-    'color': 'Yellow',
+    'color': 'Green',
     'amount': 14,
     'is_fun': true,
     'owner_id': 1
@@ -102,7 +102,7 @@ const wildAnimals = [
     'id': 12,
     'animal_common_name': 'Clark\'s nutcracker',
     'animal_science_name': 'Nucifraga columbiana',
-    'color': 'Purple',
+    'color': 'Red',
     'amount': 98,
     'is_fun': false,
     'owner_id': 1
@@ -111,7 +111,7 @@ const wildAnimals = [
     'id': 13,
     'animal_common_name': 'Gecko (unidentified)',
     'animal_science_name': 'unavailable',
-    'color': 'Pink',
+    'color': 'Blue',
     'amount': 63,
     'is_fun': false,
     'owner_id': 1
@@ -120,7 +120,7 @@ const wildAnimals = [
     'id': 14,
     'animal_common_name': 'Zebra, common',
     'animal_science_name': 'Equus burchelli',
-    'color': 'Mauv',
+    'color': 'Green',
     'amount': 80,
     'is_fun': true,
     'owner_id': 1
@@ -138,7 +138,7 @@ const wildAnimals = [
     'id': 16,
     'animal_common_name': 'Lemur, brown',
     'animal_science_name': 'Lemur fulvus',
-    'color': 'Indigo',
+    'color': 'Green',
     'amount': 43,
     'is_fun': false,
     'owner_id': 1
@@ -147,7 +147,7 @@ const wildAnimals = [
     'id': 17,
     'animal_common_name': 'Brown pelican',
     'animal_science_name': 'Pelecanus occidentalis',
-    'color': 'Yellow',
+    'color': 'Green',
     'amount': 51,
     'is_fun': true,
     'owner_id': 1
@@ -157,7 +157,7 @@ const wildAnimals = [
     'id': 18,
     'animal_common_name': 'Tsessebe',
     'animal_science_name': 'Damaliscus lunatus',
-    'color': 'Yellow',
+    'color': 'Blue',
     'amount': 24,
     'is_fun': false,
     'owner_id': 1
@@ -175,7 +175,7 @@ const wildAnimals = [
     'id': 20,
     'animal_common_name': 'Red howler monkey',
     'animal_science_name': 'Alouatta seniculus',
-    'color': 'Turquoise',
+    'color': 'Red',
     'amount': 54,
     'is_fun': false,
     'owner_id': 1
@@ -184,7 +184,7 @@ const wildAnimals = [
     'id': 21,
     'animal_common_name': 'Langur, common',
     'animal_science_name': 'Semnopithecus entellus',
-    'color': 'Indigo',
+    'color': 'Red',
     'amount': 41,
     'is_fun': false,
     'owner_id': 1
@@ -193,7 +193,7 @@ const wildAnimals = [
     'id': 22,
     'animal_common_name': 'Wallaby, euro',
     'animal_science_name': 'Macropus robustus',
-    'color': 'Aquamarine',
+    'color': 'Blue',
     'amount': 63,
     'is_fun': true,
     'owner_id': 1
@@ -211,7 +211,7 @@ const wildAnimals = [
     'id': 24,
     'animal_common_name': 'Arboral spiny rat',
     'animal_science_name': 'Echimys chrysurus',
-    'color': 'Teal',
+    'color': 'Red',
     'amount': 70,
     'is_fun': false,
     'owner_id': 1
@@ -220,7 +220,7 @@ const wildAnimals = [
     'id': 25,
     'animal_common_name': 'Shark, blue',
     'animal_science_name': 'Prionace glauca',
-    'color': 'Teal',
+    'color': 'Green',
     'amount': 4,
     'is_fun': false,
     'owner_id': 1
@@ -229,7 +229,7 @@ const wildAnimals = [
     'id': 26,
     'animal_common_name': 'Gecko, barking',
     'animal_science_name': 'Phylurus milli',
-    'color': 'Teal',
+    'color': 'Blue',
     'amount': 91,
     'is_fun': false,
     'owner_id': 1
@@ -238,7 +238,7 @@ const wildAnimals = [
     'id': 27,
     'animal_common_name': 'Vulture, white-rumped',
     'animal_science_name': 'Gyps bengalensis',
-    'color': 'Pink',
+    'color': 'Red',
     'amount': 14,
     'is_fun': false,
     'owner_id': 1
@@ -247,7 +247,7 @@ const wildAnimals = [
     'id': 28,
     'animal_common_name': 'Heron, goliath',
     'animal_science_name': 'Ardea golieth',
-    'color': 'Turquoise',
+    'color': 'Blue',
     'amount': 95,
     'is_fun': false,
     'owner_id': 1
@@ -256,7 +256,7 @@ const wildAnimals = [
     'id': 29,
     'animal_common_name': 'Egyptian cobra',
     'animal_science_name': 'Naja haje',
-    'color': 'Khaki',
+    'color': 'Red',
     'amount': 54,
     'is_fun': true,
     'owner_id': 1
@@ -265,7 +265,7 @@ const wildAnimals = [
     'id': 30,
     'animal_common_name': 'Tortoise, asian foreset',
     'animal_science_name': 'Manouria emys',
-    'color': 'Teal',
+    'color': 'Green',
     'amount': 69,
     'is_fun': true,
     'owner_id': 1
