@@ -71,39 +71,39 @@ describe('app routes', () => {
 
 
     // POST :  New animal TEST
-    // test('creates a new wild animal', async() => {
-    //   const newAnimal = {
-    //     animal_common_name: 'Jaguar',
-    //     animal_science_name: 'Panthera onca',
-    //     color: 'Neon Yellow',
-    //     amount: 577,
-    //     is_fun: true,
-    //   };
+    test('creates a new wild animal', async() => {
+      const newAnimal = {
+        animal_common_name: 'Jaguar',
+        animal_science_name: 'Panthera onca',
+        color: 'Neon Yellow',
+        amount: 577,
+        is_fun: true,
+      };
       
-    //   const expectedAnimal = {
-    //     ...newAnimal,
-    //     id: 300,
-    //     owner_id: 1,
-    //   };
+      const expectedAnimal = {
+        ...newAnimal,
+        id: 31,
+        owner_id: 1,
+      };
       
-    //   const data = await request(app)
-    //     .post('/wildAnimals')
-    //     .send(newAnimal)
-    //     .expect('Content-Type', /json/)
-    //     .expect(500);
+      const data = await request(app)
+        .post('/wildAnimals')
+        .send(newAnimal)
+        .expect('Content-Type', /json/)
+        .expect(200);
       
-    //   expect(data.body).toEqual(expectedAnimal);
+      expect(data.body).toEqual(expectedAnimal);
 
-    //   const allAnimals = await request(app)
-    //     .get('/wildAnimals')
-    //     .expect('Content-Type', /json/)
-    //     .expect(500);
+      //   const allAnimals = await request(app)
+      //     .get('/wildAnimals')
+      //     .expect('Content-Type', /json/)
+      //     .expect(500);
 
-    //   const jaguar = allAnimals.body.find(animal => animal.animal_common_name === 'Jaguar');
+      //   const jaguar = allAnimals.body.find(animal => animal.animal_common_name === 'Jaguar');
 
-    //   expect(jaguar).toEqual(expectedAnimal);
+      //   expect(jaguar).toEqual(expectedAnimal);
        
-    // });
+    });
       
     // DELETE : Delete a wild animal TEST
     test('deletes a single animal with the matching id', async() => {
