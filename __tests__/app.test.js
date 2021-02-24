@@ -32,18 +32,18 @@ describe('app routes', () => {
     });
 
     // GET : return wild animal array TEST
-    // test('should respond with the whole animal array', 
-    //   async() => {
-    //     const expectAllAnimals =  wildAnimals;
+    test('should respond with the whole animal array', 
+      async() => {
+        const expectAllAnimals =  wildAnimals;
 
-    //     const response = await request(app)
-    //       .get('/wildAnimals')
-    //       .expect('Content-Type', /json/)
-    //       .expect(200);
+        const response = await request(app)
+          .get('/wildAnimals')
+          .expect('Content-Type', /json/)
+          .expect(200);
 
-    //     expect(response.body).toEqual(expectAllAnimals);
+        expect(response.body).toEqual(expectAllAnimals);
         
-    //   });
+      });
 
     // GET : return one animal from animal array TEST
     test('should respond with one animal from array', 
