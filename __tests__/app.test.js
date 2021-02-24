@@ -53,7 +53,7 @@ describe('app routes', () => {
           'id': 22,
           'animal_common_name': 'Wallaby, euro',
           'animal_science_name': 'Macropus robustus',
-          'color_id': 3,
+          'color_id': 'Blue',
           'amount': 63,
           'is_fun': true,
           'owner_id': 1
@@ -147,7 +147,8 @@ describe('app routes', () => {
       const expectedAnimal = {
         ...updateAnimal,
         owner_id: 1,
-        id: 1
+        id: 1,
+        color_id: 'Blue'
       };
 
       await request(app)
