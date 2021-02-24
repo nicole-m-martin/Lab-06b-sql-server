@@ -93,14 +93,14 @@ describe('app routes', () => {
       
       expect(data.body).toEqual(expectedAnimal);
 
-      // const allAnimals = await request(app)
-      //   .get('/wildAnimals')
-      //   .expect('Content-Type', /json/)
-      //   .expect(200);
+      const allAnimals = await request(app)
+        .get('/wildAnimals')
+        .expect('Content-Type', /json/)
+        .expect(200);
 
-      // const jaguar = allAnimals.body.find(animal => animal.animal_common_name === 'Jaguar');
+      const jaguar = allAnimals.body.find(animal => animal.animal_common_name === 'Jaguar');
 
-      // expect(jaguar).toEqual(expectedAnimal);
+      expect(jaguar).toEqual(expectedAnimal);
        
     });
       
