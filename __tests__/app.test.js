@@ -164,6 +164,34 @@ describe('app routes', () => {
       expect(updatedAnimal.body).toEqual(expectedAnimal);
     });
 
+    // COLORS category TEST
+    test('returns the colors array', async() => {
+
+      const expectation = [
+        {
+          id: 1,
+          color: 'Green'
+        },
+      
+        {
+          id: 2,
+          color: 'Red'
+        },
+      
+        {
+          id: 3,
+          color: 'Blue'
+        }
+      ];
+
+      const data = await request(app)
+        .get('/colors')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+
+    });
   });
 });
 
