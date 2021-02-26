@@ -1,6 +1,6 @@
 const client = require('../lib/client');
 const { wildAnimals } = require('./wildAnimals.js');
-const  colorData  = require('./colors');
+const  sizeData  = require('./sizes');
 const usersData = require('./users.js');
 const { getEmoji } = require('../lib/emoji.js');
 
@@ -26,27 +26,25 @@ async function run() {
     const user = users[0].rows[0];
 
     await Promise.all(
-      colorData.map(color => {
+      sizeData.map(size => {
         return client.query(`
-                      INSERT INTO colors (color)
+                      INSERT INTO sizes (size)
                       VALUES ($1)
                       RETURNING *;
                   `,
-        [color.color]);
+        [size.size]);
       })
     );
 
     await Promise.all(
       wildAnimals.map(animal => {
         return client.query(`
-        INSERT INTO wildAnimals (animal_common_name,
-          animal_science_name, color_id, amount, is_fun, owner_id)
-          VALUES ($1, $2, $3, $4, $5, $6)`,
+        INSERT INTO wildAnimals (kind, size_id, age, is_fun, owner_id)
+          VALUES ($1, $2, $3, $4, $5)`,
 
-        [animal.animal_common_name, 
-          animal.animal_science_name, 
-          animal.color_id, 
-          animal.amount, 
+        [animal.kind, 
+          animal.size_id, 
+          animal.age, 
           animal.is_fun, 
           user.id]);
       })

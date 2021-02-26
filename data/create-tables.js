@@ -17,23 +17,19 @@ async function run() {
                     email VARCHAR(256) NOT NULL,
                     hash VARCHAR(512) NOT NULL
                 ); 
-                CREATE TABLE colors (
+                CREATE TABLE sizes (
                   id SERIAL PRIMARY KEY NOT NULL,
-                  color VARCHAR(512) NOT NULL
+                  size VARCHAR(512) NOT NULL
                 );   
                 CREATE TABLE wildAnimals (
                     id SERIAL PRIMARY KEY NOT NULL,
-                    animal_common_name VARCHAR(512) NOT NULL,
-                    animal_science_name VARCHAR(512) NOT NULL,
-                    color_id INTEGER NOT NULL REFERENCES colors(id),
-                    amount INTEGER NOT NULL,
+                    kind VARCHAR(512) NOT NULL,
+                    size_id INTEGER NOT NULL REFERENCES sizes(id),
+                    age INTEGER NOT NULL,
                     is_fun BOOLEAN NOT NULL,
                     owner_id INTEGER NOT NULL REFERENCES users(id)
                 );
-                     
-                
-
-
+                    
 
                 
         `);
