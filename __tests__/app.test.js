@@ -149,13 +149,13 @@ describe('app routes', () => {
     //     .put('/wildAnimals/10')
     //     .send(newAni)
     //     .expect('Content-Type', /json/);
-    //     // .expect(200);
+    //     .expect(200);
 
   
     //   const updatedAni = await request(app)
     //     .get('/wildAnimals/10')
-    //     .expect('Content-Type', /json/);
-    //     // .expect(200);
+    //     .expect('Content-Type', /json/)
+    //     .expect(200);
 
     
     //   expect(updatedAni.body).toEqual(expectedAni);
