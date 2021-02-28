@@ -1,10 +1,10 @@
 require('dotenv').config();
 
 const { execSync } = require('child_process');
-
-const fakeRequest = require('supertest');
+const request = require('supertest');
 const app = require('../lib/app');
 const client = require('../lib/client');
+const { wildAnimals } = require('../data/wildAnimals');
 
 describe('app routes', () => {
   describe('routes', () => {
@@ -15,7 +15,7 @@ describe('app routes', () => {
   
       client.connect();
   
-      const signInData = await fakeRequest(app)
+      const signInData = await request(app)
         .post('/auth/signup')
         .send({
           email: 'jon@user.com',
@@ -31,35 +31,168 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-    test('returns animals', async() => {
+    // GET : return wild animal array TEST
+    test('should respond with the whole animal array', 
+      async() => {
+        const expectAllAnimals =  wildAnimals;
+
+        const response = await request(app)
+          .get('/wildAnimals')
+          .expect('Content-Type', /json/)
+          .expect(200);
+
+        expect(response.body).toEqual(expectAllAnimals);
+        
+      });
+
+    // GET : return one animal from animal array TEST
+    test('should respond with one animal from array', 
+      async() => {
+        const expectation = {
+         
+          id: 1,
+          kind: 'Llama',
+          size: 'Large',
+          age: 10,
+          is_fun: true,
+          owner_id: 1,
+          size_id: 1
+          
+        };
+
+        const response = await request(app)
+          .get('/wildAnimals/1')
+          .expect('Content-Type', /json/)
+          .expect(200);
+
+        expect(response.body).toEqual(expectation);
+      });
+
+
+    //     // POST :  New animal TEST
+    test('creates a new wild animal', async() => {
+      const newAnimal = {
+        kind: 'Jaguar',
+        size_id: 1,
+        age: 10,
+        is_fun: true,
+      };
+      
+      const expectedAnimal = {
+        ...newAnimal,
+        id: 11,
+        owner_id: 1,
+      };
+      
+      const data = await request(app)
+        .post('/wildAnimals')
+        .send(newAnimal)
+        .expect('Content-Type', /json/)
+        .expect(200);
+      
+      expect(data.body).toEqual(expectedAnimal);
+
+      // const allAnimals = await request(app)
+      //   .get('/wildAnimals')
+      //   .expect('Content-Type', /json/)
+      //   .expect(200);
+
+      // const jaguar = allAnimals.body.find(animal => animal.animal_common_name === 'Jaguar');
+
+      // expect(jaguar).toEqual(expectedAnimal);
+       
+    });
+      
+    //     // DELETE : Delete a wild animal TEST
+    test('deletes a single animal with the matching id', async() => {
+      const expectation = {
+        id: 10,
+        kind: 'Lion',
+        size_id: 1,
+        age: 9,
+        is_fun: false,
+        owner_id: 1
+      };
+      
+      const data = await request(app)
+        .delete('/wildAnimals/10')
+        .expect('Content-Type', /json/)
+        .expect(200);
+      
+      expect(data.body).toEqual(expectation);
+      
+      const nothing = await request(app)
+        .get('/wildAnimals/10')
+        .expect('Content-Type', /json/)
+        .expect(200);
+      
+      expect(nothing.body).toEqual('');
+    });
+
+    //     // PUT : Update a wild animal object TEST
+    // test('updates an Animal', async() => {
+     
+    //   const newAni = {
+    //     id: 10,
+    //     kind: 'Dog',
+    //     age: 12,
+    //     is_fun: true,
+    //     size_id: 2,
+    //   };
+
+    //   const expectedAni = {
+    //     ...newAni,
+    //     id: 1,
+    //     owner_id: 1
+    //   };
+      
+    //   await request(app)
+    //     .put('/wildAnimals/10')
+    //     .send(newAni)
+    //     .expect('Content-Type', /json/)
+    //     .expect(200);
+
+  
+    //   const updatedAni = await request(app)
+    //     .get('/wildAnimals/10')
+    //     .expect('Content-Type', /json/)
+    //     .expect(200);
+
+    
+    //   expect(updatedAni.body).toEqual(expectedAni);
+    // });
+
+
+
+    
+    // size category TEST
+    test('returns the sizes array', async() => {
 
       const expectation = [
         {
-          'id': 1,
-          'name': 'bessie',
-          'coolfactor': 3,
-          'owner_id': 1
+          id: 1,
+          size: 'Large'
         },
+      
         {
-          'id': 2,
-          'name': 'jumpy',
-          'coolfactor': 4,
-          'owner_id': 1
+          id: 2,
+          size: 'Medium'
         },
+      
         {
-          'id': 3,
-          'name': 'spot',
-          'coolfactor': 10,
-          'owner_id': 1
+          id: 3,
+          size: 'Small'
         }
       ];
 
-      const data = await fakeRequest(app)
-        .get('/animals')
+      const data = await request(app)
+        .get('/sizes')
         .expect('Content-Type', /json/)
         .expect(200);
 
       expect(data.body).toEqual(expectation);
+
     });
   });
 });
+
