@@ -55,7 +55,8 @@ describe('app routes', () => {
           size: 'Large',
           age: 10,
           is_fun: true,
-          owner_id: 1
+          owner_id: 1,
+          size_id: 1
           
         };
 
@@ -148,7 +149,7 @@ describe('app routes', () => {
     //   await request(app)
     //     .put('/wildAnimals/10')
     //     .send(newAni)
-    //     .expect('Content-Type', /json/);
+    //     .expect('Content-Type', /json/)
     //     .expect(200);
 
   
